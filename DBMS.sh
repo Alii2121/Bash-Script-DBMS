@@ -9,21 +9,28 @@ echo "
 
 --------------- Hello Ali's DBMS User :) ------------
  
+            
             What are you up to Today?
-                                                    
-                                                    "
+                                                                              "
 
-echo  "1) Create Database 
-2) List Databases
-3) Connect to a Database
-4) Drop Database "
-echo "
+echo " 
+---------------------------------------------------
+"
 
---------------------------------------------------- "
-echo -n  "Ask and you shall be served :) "
-read upto 
+echo  "Ask and you shall be served :) 
+"
 
-case $upto in
+while true 
+
+do 
+
+PS3="Please Enter Your Choice : "
+
+select i in "Create Database" "List Databases" "Connect to a Database" "Drop Database" "Exit"
+
+do
+
+case $REPLY in
 
  1 )
 
@@ -34,7 +41,9 @@ case $upto in
              mkdir ./DBMS/$cdb
              echo " Database Created Successfully ! "
         fi
+ break       
 ;;
+
 
 
 2 )
@@ -45,6 +54,7 @@ case $upto in
          echo " Encountered an error"
     fi          
 
+ break   
 ;;
 
 3 ) 
@@ -59,6 +69,7 @@ case $upto in
          echo " No Database with that name exists !"
     fi     
 
+ break
 ;;
 
 
@@ -75,17 +86,19 @@ case $upto in
 
           echo " DB Doesn't Exist "    
     fi
+
+ break
 ;;
 
 
 
 * )
 
-   echo "bye"
-   
+   exit ;;
+     
 esac
-
-
+done
+done 
 
 
 
