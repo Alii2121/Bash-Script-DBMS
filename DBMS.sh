@@ -63,8 +63,8 @@ case $REPLY in
     if [ -d "./$selectdb" ]; then
     
         cd ./$selectdb
-        echo -e "\n Connected to Database Successfully ! \n"
-         . ./../selectmenu.sh
+        echo -e "\n Connected to Database : $selectdb Successfully ! \n"
+         . ./../../selectmenu.sh
     else 
          echo " No Database with that name exists !"
 
