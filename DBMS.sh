@@ -1,24 +1,20 @@
 #!usr/bin/bash
+if [ -d "./DBMS" ]; then  
+   cd ./DBMS
+else   
+   mkdir ./DBMS 2>/dev/null
+   cd ./DBMS
+fi 
+ ########################### START of script and intro choices #######################
 
-mkdir ./DBMS 2>/dev/null
+echo -e " \n \n--------------- Hello Ali's DBMS User :) ------------ \n \n \n \t \t What are you up to Today? \n \t \t"
 
-
-  ###START of script and intro choices###
-
-echo "
-
---------------- Hello Ali's DBMS User :) ------------
- 
-            
-            What are you up to Today?
-                                                                              "
-
-echo " 
----------------------------------------------------
-"
+echo -e " \n \n --------------------------------------------------- \n \n "
 
 echo  "Ask and you shall be served :) 
 "
+
+
 
 while true 
 
@@ -36,10 +32,10 @@ case $REPLY in
 
     read -p "  Please Enter The New Database Name : " cdb 
         if [ -d "./DBMS/$cdb" ]; then
-            echo " Database Already exists !"
+            echo -e " \n Database Already exists !"
         else
-             mkdir ./DBMS/$cdb
-             echo " Database Created Successfully ! "
+             mkdir ./$cdb 2> /dev/null
+             echo -e " \n Database Created Successfully ! \n "
         fi
  break       
 ;;
@@ -48,30 +44,34 @@ case $REPLY in
 
 2 )
     
-    if [ -d "./DBMS" ]; then
-         ls ./DBMS/ 
+    if [ -d "./$cdb" ]; then
+         echo -e "\n"
+         ls -f
+         echo -e "\n " 
     else 
-         echo " Encountered an error"
+         echo -e " \n \n No Databases Found \n"
     fi          
 
  break   
 ;;
 
+
 3 ) 
     
     read -p "Please Enter DB Name : " selectdb
     
-    if [ -d "./DBMS/$selectdb" ]; then
+    if [ -d "./$selectdb" ]; then
     
-        cd ./DBMS/$selectdb
-        echo "Connected to Database Successfully !"
+        cd ./$selectdb
+        echo -e "\n Connected to Database Successfully ! \n"
+         . ./../selectmenu.sh
     else 
          echo " No Database with that name exists !"
-    fi     
 
- break
-;;
-
+    fi
+   ;;
+       
+     
 
 4 ) 
 
@@ -95,10 +95,12 @@ case $REPLY in
 * )
 
    exit ;;
-     
-esac
+esac     
+
 done
 done 
+
+
 
 
 
