@@ -27,6 +27,67 @@ read tablename
        else           
            touch ./$tablename
            touch ./$tablename"-meta_data"
-           echo -e "\n Table Created Successfully"
+
+           
        fi    
   fi
+
+
+ for (( i = 1; i <= $nocols; i++ ));
+
+   do
+     
+    
+    
+    
+if [[ i -eq 1 ]]; then
+    echo -e "\n Please Enter Primary Key Name \n \c"
+     read $name_col
+      #until [[ $name_col =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]]
+       #     do
+        #           echo -e "\n Please Enter A Vaild PK Name (only letters preferred) "
+         #           echo -e "\n Please Enter Primary Key Name : \c "
+          #          read name_col
+                 
+           # done
+    
+    
+     
+       echo "PK of table =" $name_col "-" >> ./$tablename"-meta_data"
+       echo " The Number of coloumns is = " $nocol >> ./$tablename"-meta_data"
+       
+elif   [[ i -eq $nocols ]]; then
+
+        echo -e "\n Enter coloumn $i name : \c "
+        read $name_col
+        echo -n "-" $name_col "-" >> ./$tablename"-meta_data"
+
+else 
+       echo -e " \n Enter coloumn $i name :  \c"
+       read $name_col
+       echo -n " -" $name_col "-" >> ./$tablename"-meta_data"
+fi
+
+
+done
+
+echo -e "\n \n Table $tablename Created Successfully !!"
+
+
+
+     
+
+          
+
+
+
+
+
+
+
+
+    
+
+ 
+
+           
