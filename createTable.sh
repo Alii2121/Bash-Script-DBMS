@@ -16,9 +16,9 @@ read tablename
 
   else 
         
-          echo -e "\n Please Enter No. of Coloumns: \n \c"
+          read -p " Please Enter No. of Coloumns: " nocols
 
-         read nocols 
+          
        if [[ $nocols == 0 ]]; then
               echo " no. of coloumns can't be 0 "
        elif
@@ -27,7 +27,8 @@ read tablename
        else           
            touch ./$tablename
            touch ./$tablename"-meta_data"
-
+           
+           echo " The Number of coloumns is =" "$nocols" >> ./$tablename"-meta_data"
            
        fi    
   fi
@@ -41,8 +42,8 @@ read tablename
     
     
 if [[ i -eq 1 ]]; then
-    echo -e "\n Please Enter Primary Key Name \n \c"
-     read $primaryk
+    read -p " Please Enter Primary Key Name:  " primaryk
+     
       #until [[ $name_col =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]]
        #     do
         #           echo -e "\n Please Enter A Vaild PK Name (only letters preferred) "
@@ -54,20 +55,20 @@ if [[ i -eq 1 ]]; then
     
      
        echo "PK of table =" "$primaryk"  >> ./$tablename"-meta_data"
-       echo " The Number of coloumns is =" "$nocol" >> ./$tablename"-meta_data"
-       echo $primaryk >> ./$tablename
+       
+       echo -n  $primaryk":" >> ./$tablename
        
 elif   [[ i -eq $nocols ]]; then
 
-        echo -e "\n Enter coloumn $i name : \c "
-        read $name_col
-        echo "$name_col" >> ./$tablename"-meta_data"
-        echo  "$name_col" >> ./tablename
+        read -p " Enter coloumn $i name : " name_col
+        echo -n  $primaryk"(PK):" >> ./$tablename"-meta_data" 
+        echo -n $name_col":" >> ./$tablename"-meta_data"
+        echo -n  $name_col":" >> ./$tablename
 else 
-       echo -e " \n Enter coloumn $i name :  \c"
-       read $name_col
-       echo $name_col  >> ./$tablename"-meta_data"
-       echo $name_col  >> ./tablename
+       read -p " Enter coloumn $i name : " name_col
+
+       echo -n $name_col":"  >> ./$tablename"-meta_data"
+       echo -n $name_col":"  >> ./$tablename
 fi
 
 
