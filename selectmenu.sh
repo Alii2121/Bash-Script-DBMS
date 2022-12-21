@@ -14,25 +14,26 @@ case $REPLY in
   ;;
 
 2 ) 
-    echo "bye"
-    #ls -F | grep -Ev '/|@|*|=|>|\|' 
+    echo -e " \n This Database Contains Tables: "
+    ls -p | grep -v /
+     
+    
 
     ;;
 
 3 ) 
   
   echo -e "\n Please Enter Name of Table You Want To Drop :  \n"
-  
-  #read droptb
-  
-  #if [ -f "$droptb" ]; then
-      
-      #rm -i ./$droptb
-      #echo -e  "\n Table Dropped Successfully ! \n"
 
-  #else 
-     # echo -e "\n Table Doesn't Exist ! \n"
-  #fi         
+  read droptb
+
+  if [ -f "$droptb" ]; then
+     
+     rm  ./$droptb
+     echo -e  "\n Table Dropped Successfully ! \n"
+  else 
+     echo -e "\n Table Doesn't Exist ! \n"
+  fi         
   ;;
 
 4 ) 
@@ -42,7 +43,8 @@ echo " test "
 
 5 )
 
-echo "s"
+. ./../../selectfromtable.sh
+continue
 
 ;;
 
@@ -60,7 +62,7 @@ echo "s"
 
 
 * )
-    echo "salam"
+    break
   ;;
 esac 
 done    

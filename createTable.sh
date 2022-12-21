@@ -42,7 +42,7 @@ read tablename
     
 if [[ i -eq 1 ]]; then
     echo -e "\n Please Enter Primary Key Name \n \c"
-     read $name_col
+     read $primaryk
       #until [[ $name_col =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]]
        #     do
         #           echo -e "\n Please Enter A Vaild PK Name (only letters preferred) "
@@ -53,19 +53,21 @@ if [[ i -eq 1 ]]; then
     
     
      
-       echo "PK of table =" $name_col "-" >> ./$tablename"-meta_data"
-       echo " The Number of coloumns is = " $nocol >> ./$tablename"-meta_data"
+       echo "PK of table =" "$primaryk"  >> ./$tablename"-meta_data"
+       echo " The Number of coloumns is =" "$nocol" >> ./$tablename"-meta_data"
+       echo $primaryk >> ./$tablename
        
 elif   [[ i -eq $nocols ]]; then
 
         echo -e "\n Enter coloumn $i name : \c "
         read $name_col
-        echo -n "-" $name_col "-" >> ./$tablename"-meta_data"
-
+        echo "$name_col" >> ./$tablename"-meta_data"
+        echo  "$name_col" >> ./tablename
 else 
        echo -e " \n Enter coloumn $i name :  \c"
        read $name_col
-       echo -n " -" $name_col "-" >> ./$tablename"-meta_data"
+       echo $name_col  >> ./$tablename"-meta_data"
+       echo $name_col  >> ./tablename
 fi
 
 
