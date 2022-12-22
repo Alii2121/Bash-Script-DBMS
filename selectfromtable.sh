@@ -19,8 +19,10 @@ fi
 ;;
 
 2 ) 
-   
-   read -p "Please Spicify The Primary Key of Row" PkOfRow
+   read -p "Please Choose A Table to Select From : " tablename
+   read -p "Please Spicify The Primary Key of Row: " PkOfRow
+   num_of_row=$(awk -v row_number=$PkOfRow 'BEGIN{ FS = ":"}{ if( row_number == $1 ){ print } }' ./$tablename)
+        echo $num_of_row
 ;;
 
 3 ) 

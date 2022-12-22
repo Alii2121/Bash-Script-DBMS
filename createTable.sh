@@ -11,7 +11,7 @@ read tablename
   elif 
          [[ ! $tablename =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] || [[ $tablename == '' ]]; then
          echo -e "\n Table Name Can't Start with a space or Special Characters \n "
-       
+          break
                   
 
   else 
@@ -24,6 +24,7 @@ read tablename
        elif
             ! [[ "$nocols" =~ ^[0-9]+$ ]]; then
                 echo -e '\n Please Enter Numbers Only !! \n'
+                break
        else           
            touch ./$tablename
            touch ./$tablename"-meta_data"
@@ -44,14 +45,14 @@ read tablename
 if [[ i -eq 1 ]]; then
     read -p " Please Enter Primary Key Name:  " primaryk
      
-      #until [[ $name_col =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]]
-       #     do
-        #           echo -e "\n Please Enter A Vaild PK Name (only letters preferred) "
-         #           echo -e "\n Please Enter Primary Key Name : \c "
-          #          read name_col
-                 
-           # done
-    
+     # while true
+     # do
+     # if   [[ ! $primaryk =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] || [[ $primaryk == '' ]]; then
+     #    echo -e "\n Table Name Can't Start with a space or Special Characters \n "
+     #  break
+     # fi     
+     #  done   
+       
     
      
        echo "PK of table =" "$primaryk"  >> ./$tablename"-meta_data"
@@ -74,8 +75,8 @@ fi
 
 done
 
-echo -e "\n \n Table $tablename Created Successfully !!"
 
+echo -e "\n \n Table $tablename Created Successfully !!" 
 
 
      
