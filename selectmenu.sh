@@ -38,7 +38,7 @@ case $REPLY in
 
 4 ) 
 
-
+   . ./../../insert.sh
 
 echo " test "
 ;;

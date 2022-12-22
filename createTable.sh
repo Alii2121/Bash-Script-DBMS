@@ -57,7 +57,7 @@ if [[ i -eq 1 ]]; then
      
        echo "PK of table =" "$primaryk"  >> ./$tablename"-meta_data"
        
-       echo -n  $primaryk":" >> ./$tablename
+       echo -n "   " $primaryk"(PK):" >> ./$tablename
        
 elif   [[ i -eq $nocols ]]; then
 
