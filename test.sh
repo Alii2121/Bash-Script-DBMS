@@ -1,4 +1,2 @@
-
- #awk 'BEGIN{FS=":"} {print $1}'  ./DBMS/ali/ali
- num=$(awk -F : ' NR>1 { print $1 } ' ./DBMS/ali/ali)
-    echo $num
+delLine=$(awk -F ":" -v f1="$chpk" ' NR>1 !(f1==$1) ' ./DBMS/ali/ali )
+    echo $delLine

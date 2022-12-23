@@ -5,13 +5,23 @@ if ! [[ -f "./$selectedtb"  ]]; then
 
 else     
 
-cols2=$(awk -F : ' NR>1 { print $1 } ' ./$selectedtb)
-   # echo $cols2
+#cols2=$(awk -F : ' NR>1 { print $1 } ' ./$selectedtb)
+   echo -e "\n Table $selectedtb \n"
+   cat ./$selectdb 
+     
+     
      read -p "Please Enter PK of Colomun You want to delete: " chpk
     
-    line=`grep "$chpk" ./$selectdb`
-    sed -i "/$line/d" ./$selectdb
-    echo "deleted"
+    #delLine=$(awk -F ":" -v f1="$chpk" ' NR>1 !($1==f1) ' ./$selectedtb )
+    #echo $delLine 
+
+
+
+    line=`grep "^$chpk" ./$selectdb`
+    sed -i "/"^$line"/d" ./$selectdb
+      
+    echo "Row Successfully Deleted !"
+
 
 
 
