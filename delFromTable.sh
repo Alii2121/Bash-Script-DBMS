@@ -1,3 +1,4 @@
+
 read -p "Please Enter Table Name: " selectedtb
 
 if ! [[ -f "./$selectedtb"  ]]; then
@@ -9,7 +10,7 @@ else
    echo -e "\n Table $selectedtb \n"
    cat ./$selectdb 
      
-     
+   
      read -p "Please Enter PK of Colomun You want to delete: " chpk
     
     #delLine=$(awk -F ":" -v f1="$chpk" ' NR>1 !($1==f1) ' ./$selectedtb )

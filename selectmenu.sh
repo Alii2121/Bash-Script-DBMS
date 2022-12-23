@@ -56,7 +56,9 @@ continue
 
 7 ) 
 
-echo "s"
+ . ./../../updateTable.sh
+
+
 ;;
 
 
