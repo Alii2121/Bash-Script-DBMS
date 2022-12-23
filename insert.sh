@@ -16,7 +16,7 @@ fi
 
 nocols=`cat ./ali |  grep -o ":" | wc -l   `
 echo $nocols
-#declare -i i=1
+
 insertion() {
 for (( i = 1; i <= $nocols; i++ ));
 do
@@ -37,6 +37,7 @@ do
      else
        read -p " Enter coloumn $i Value : " val_col
        echo -n $val_col":"  >> ./$tb  
+       break
    fi
 done }
 insertion

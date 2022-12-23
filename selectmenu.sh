@@ -40,7 +40,6 @@ case $REPLY in
 
    . ./../../insert.sh
 
-echo " test "
 ;;
 
 5 )
@@ -52,7 +51,7 @@ continue
 
 6 )
 
-echo "ss"
+   . ./../../delFromTable.sh
 ;;
 
 7 ) 
