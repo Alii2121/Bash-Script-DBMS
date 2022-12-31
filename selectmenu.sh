@@ -30,6 +30,7 @@ case $REPLY in
   if [ -f "$droptb" ]; then
      
      rm  ./$droptb
+     rm  ./$droptb"-meta_data"
      echo -e  "\n Table Dropped Successfully ! \n"
   else 
      echo -e "\n Table Doesn't Exist ! \n"

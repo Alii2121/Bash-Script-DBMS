@@ -8,7 +8,7 @@ else
 
 #cols2=$(awk -F : ' NR>1 { print $1 } ' ./$selectedtb)
    echo -e "\n Table $selectedtb \n"
-   cat ./$selectdb 
+   cat ./$selectedtb 
      
    
      read -p "Please Enter PK of Colomun You want to delete: " chpk
@@ -18,8 +18,8 @@ else
 
 
 
-    line=`grep "^$chpk" ./$selectdb`
-    sed -i "/"^$line"/d" ./$selectdb
+    line=`grep "^$chpk" ./$selectedtb`
+    sed -i "/$line/d" "./$selectedtb"
       
     echo "Row Successfully Deleted !"
 
