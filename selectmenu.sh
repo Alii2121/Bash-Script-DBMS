@@ -1,7 +1,7 @@
 #!usr/bin/bash
 while true
 do
-select i in "Create Table" "List Tables" "Drop Table" "Insert into Table" "Select From Table" "Delete From Table" "Update Table"
+select i in "Create Table" "List Tables" "Drop Table" "Insert into Table" "Select From Table" "Delete From Table" "Update Table" "Exit"
 
 do 
 
@@ -62,11 +62,16 @@ continue
 
 ;;
 
+8 ) 
+
+exit
+;;
+ 
 
 
 
 * )
-    break
+    exit
   ;;
 esac 
 done    

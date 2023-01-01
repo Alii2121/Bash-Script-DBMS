@@ -33,7 +33,9 @@ case $REPLY in
     read -p "  Please Enter The New Database Name : " cdb 
         if [ -d "./DBMS/$cdb" ]; then
             echo -e " \n Database Already exists !"
-        else
+        elif ! [[ $cdb =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] || [[ $cdb == '' ]]; then
+            echo -e "Name Can't be null or special characters ! \n"
+         else   
              mkdir ./$cdb 2> /dev/null
              echo -e " \n Database Created Successfully ! \n "
         fi
@@ -77,10 +79,10 @@ case $REPLY in
 
     read -p "Enter the DB Name that you wish to DROP : " dropdb
 
-    if [ -d "./DBMS/$dropdb" ]; then
+    if [ -d "./$dropdb" ]; then
         
-        rm -r ./DBMS/$dropdb
-        echo " DB Dropped Successfully ! "
+        rm -r ./$dropdb
+        echo -e "\n DB Dropped Successfully ! \n"
 
     else
 

@@ -30,10 +30,11 @@ fi
     read -p "Please Enter Table Name: " selectedtb
 
     if ! [[ -f "./$selectedtb"  ]]; then
-       echo "Table Doesn't Exist"
+       echo -e "\n Table Doesn't Exist \n"
 
     else [[ -f "./$selectedtb" ]]
        cat ./$selectedtb"-meta_data"
+       echo -e "\n"
        break
 
 fi       

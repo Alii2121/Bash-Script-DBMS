@@ -1,3 +1,3 @@
  The Number of coloumns is = 3
 PK of table = id (int)
-(int)id(PK):(str)name:(str)jacob:
+(int)id(PK):(str)name:(str)job:
